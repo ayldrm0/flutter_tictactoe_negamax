@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   var move;
   List gridViewText = List.filled(9, "");
 
-  final scores = {"X": 10.0, "O": 10.0, "tie": 0.0};
+  final scores = {"X": -10.0, "O": 10.0, "tie": 0.0};
 
   _onTap(int i) {
     if (isMyTurn && gridViewText[i] == "") {
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
     if (result != null) return multiply * scores[result];
 
     double bestScore = double.negativeInfinity;
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < gridViewText.length; i++) {
       if (board[i] == "") {
         isMyTurn ? board[i] = "X" : board[i] = "O";
         filledSq++;
