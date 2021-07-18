@@ -138,6 +138,9 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData().copyWith(
         primaryColor: Colors.amber,
         accentColor: Colors.deepPurple,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.deepPurple))),
       ),
       home: Scaffold(
         backgroundColor: Colors.amber,
