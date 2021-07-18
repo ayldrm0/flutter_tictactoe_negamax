@@ -18,19 +18,9 @@ class _MyAppState extends State<MyApp> {
   var filledSq = 0;
   var isMyTurn = true;
   var move;
-  List gridViewText = [
-    "X",
-    "O",
-    "X",
-    "",
-    "",
-    "X",
-    "",
-    "O",
-    "O"
-  ]; //List.filled(9, "");
+  List gridViewText = List.filled(9, "");
 
-  final scores = {"X": -10.0, "O": 10.0, "tie": 0.0};
+  final scores = {"X": 10.0, "O": 10.0, "tie": 0.0};
 
   _onTap(int i) {
     if (isMyTurn && gridViewText[i] == "") {
@@ -139,8 +129,10 @@ class _MyAppState extends State<MyApp> {
         primaryColor: Colors.amber,
         accentColor: Colors.deepPurple,
         elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.deepPurple))),
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+          ),
+        ),
       ),
       home: Scaffold(
         backgroundColor: Colors.amber,
@@ -214,23 +206,14 @@ class _MyAppState extends State<MyApp> {
             ElevatedButton(
               onPressed: () {
                 setState(() {
-                  gridViewText = [
-                    "X",
-                    "O",
-                    "X",
-                    "",
-                    "",
-                    "X",
-                    "",
-                    "O",
-                    "O"
-                  ]; //List.filled(9, "");
+                  gridViewText = List.filled(9, "");
                   isMyTurn = true;
                   filledSq = 0;
                   haveWinner = false;
                 });
               },
               child: Text("New Game"),
+              style: Theme.of(context).elevatedButtonTheme.style,
             ),
             ElevatedButton(
               onPressed: () {
@@ -245,6 +228,7 @@ class _MyAppState extends State<MyApp> {
                 });
               },
               child: Text("Reset Game"),
+              style: Theme.of(context).elevatedButtonTheme.style,
             ),
           ],
         ),
